@@ -42,16 +42,15 @@ function init() { // this is the function to initialize content from localStorag
 // function that updates the colors of the timeblocks based on the current time
 function changeColor() {
     var timeBlock = $('.row'); // creates an array that holds each of the timeblocks
-    var now = moment().format('k'); // grabs the current hour, in military time
-
+    var now = parseInt(moment().format('k')); // grabs the current hour, in military time
     //loops through the timeblock array
     $.each(timeBlock, function() {
         var blockTime = $(this).attr('data-milTime'); // grabs the index of the current timeblock
         var textAreaEl = $(this).children('textarea');// points to the textarea in the current timeblock
-        if (blockTime === now) { // if the timeblock represents the current time switch it's color to match
+        if (blockTime == now) { // if the timeblock represents the current time switch it's color to match
             textAreaEl.removeClass('future');
             textAreaEl.addClass('present');
-        } else if (blockTime > now) { // if the timeblock represents a time that has already passed, switch it's color to match
+        } else if (blockTime < now) { // if the timeblock represents a time that has already passed, switch it's color to match
             textAreaEl.removeClass('future');
             textAreaEl.addClass('past');
             }
