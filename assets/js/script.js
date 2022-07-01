@@ -29,7 +29,7 @@ function init() { // this is the function to initialize content from localStorag
         $('.container').children().eq(i).children('textarea').text(calendar[i]);
     }
 
-    // updates the colors of the time blocks on load, rather than
+    // updates the colors of the time blocks on load
     changeColor(); 
     //starts a clock that will update the colors as time passes with the website open
     var clock = setInterval(function() {
