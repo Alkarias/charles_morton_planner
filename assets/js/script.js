@@ -1,5 +1,5 @@
-var today = moment().format('dddd, MMMM Do'); // grabs the current time and formats it appropriately
 var calendar = init(); //initializes the list on startup
+var today = moment().format('dddd, MMMM Do'); // grabs the current time and formats it appropriately
 $('#currentDay').text(today); // sets the jumbotron object that holds the date
 
 //event listener that checks for the clicking of the save buttons
@@ -15,7 +15,6 @@ $('.row').on('click', 'button', function() {
 //function that stores the current data in localStorage
 function save(index, content) {
     calendar.splice(index,1,content); //overwrites the index with the current data
-    console.log(calendar);
     localStorage.setItem('calendar',JSON.stringify(calendar)); // saves the array to localStorage
 }
 
@@ -44,7 +43,6 @@ function init() { // this is the function to initialize content from localStorag
 function changeColor() {
     var timeBlock = $('.row'); // creates an array that holds each of the timeblocks
     var now = moment().format('k'); // grabs the current hour, in military time
-    console.log(now);
 
     //loops through the timeblock array
     $.each(timeBlock, function() {
@@ -58,5 +56,4 @@ function changeColor() {
             textAreaEl.addClass('past');
             }
     });
-
 }
